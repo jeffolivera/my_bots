@@ -10,54 +10,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <style>
+    <style>
 		#blip-chat-open-iframe {
 		display: none !important;
-	}
+	    }
 
-	#blip-chat-container {
-		height: 100% !important;
-		bottom: 0 !important;
-		right: 0 !important;
-	}
+        #blip-chat-container {
+            height: 100% !important;
+            bottom: 0 !important;
+            right: 0 !important;
+        }
 
-	#blip-chat-iframe {
-		position: absolute !important;
-		top: 0 !important;
-		right: -400px !important;
-		bottom: 0 !important;
-		height: 100% !important;
-		max-height: 100% !important;
-		transform: none !important;
-		opacity: 1 !important;
-		box-shadow: none !important;
-		transition: 0.5s !important;
-	}
+        #blip-chat-iframe {
+            position: absolute !important;
+            top: 0 !important;
+            right: -400px !important;
+            bottom: 0 !important;
+            height: 100% !important;
+            max-height: 100% !important;
+            transform: none !important;
+            opacity: 1 !important;
+            box-shadow: none !important;
+            transition: 0.5s !important;
+        }
 
-	#blip-chat-iframe.blip-chat-iframe-opened {
-		right: 0 !important;
-		box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.2) !important;
-	}
+        #blip-chat-iframe.blip-chat-iframe-opened {
+            right: 0 !important;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.2) !important;
+        }
     </style>
+
     <body>
         <div class="fixed-action-btn">
             <a class="btn-floating btn-large red pulse tooltipped fixed" data-position="left" data-tooltip="Precisa de Ajuda?!">
-            <i class="large material-icons md-dark">info_outline</i>
+                <i class="large material-icons md-dark">info_outline</i>
             </a>
-            <ul>
-            <li>
-                <a class="btn-floating green tooltipped" data-position="left" data-tooltip="Whatsapp" href="https://wa.me/5535991542102?text=Oi%20Gabriel,%20Obrigado%20pelo%20Widget" target="_blank">
-                <i class="material-icons"><img src="https://bots2u.com.br/chat-widget/wpp.svg" width="40" height="40"/></i></a>
-            </li>
-            <li>
-                <a class="btn-floating cyan accent-3 tooltipped" data-position="left" data-tooltip="Blip Chat">
-                <i class="material-icons btn-solid-reg popup-with-move-anim" onclick="openBlipChat()"><img src="https://bots2u.com.br/chat-widget/blip.svg" width="40" height="40"/></i></a>
-            </li>
-            <li>
-                <a class="btn-floating grey tooltipped" data-position="left" data-tooltip="Email" href="mailto:gabriel@bots2u.com.br">
-                <i class="material-icons">email</i></a>
-            </li>
-            </ul>
+                <ul>
+                    <li>
+                        <a class="btn-floating green tooltipped" data-position="left" data-tooltip="Whatsapp" href="https://wa.me/5535991542102?text=Oi%20Gabriel,%20Obrigado%20pelo%20Widget" target="_blank">
+                        <i class="material-icons"><img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" width="40" height="40"/></i></a>
+                    </li>
+                    <li>
+                        <a class="btn-floating cyan accent-3 tooltipped" data-position="left" data-tooltip="Blip Chat">
+                        <i class="material-icons btn-solid-reg popup-with-move-anim" onclick="openBlipChat()"><img src="https://www.televendasecobranca.com.br/wp-content/uploads/2013/06/Diga-o-que-quer-antes-de-iniciar-a-conversa-televendas-cobranca.jpg" width="40" height="40"/></i></a>
+                    </li>
+                    <li>
+                        <a class="btn-floating grey tooltipped" data-position="left" data-tooltip="Email" href="mailto:gabriel@bots2u.com.br">
+                        <i class="material-icons">email</i></a>
+                    </li>
+                </ul>
         </div>
-</body>
+    </body>
 </html>
