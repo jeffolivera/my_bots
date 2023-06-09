@@ -7,11 +7,12 @@ window.onload = function () {
 
 	var client = new BlipChat()
 	.withAppKey(appkey)
+	.withoutHistory()
 	.withEventHandler(BlipChat.LOAD_EVENT, function(){
 		var iframe = document.getElementById("blip-chat-iframe");
 		iframe.contentWindow.postMessage({ code: "ShowCloseButton", showCloseButton: true }, iframe.src);	
 	});
-	client.withoutHistory()
+	
     
 		
 	client.build();
