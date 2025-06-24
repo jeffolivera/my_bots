@@ -1,64 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <title>Meu Site</title>
-</head>
-
-    <script src="blip-chat.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio Divertido de Bots!</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/blip-sdk@1.0.0/dist/blip-sdk.min.js"></script>
+    <script src="https://unpkg.com/blip-chat-widget"></script>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao Meu Laboratório de Bots!</h1>
+        <p>Prepare-se para conversar com algumas das minhas criações mais bacanas (e outras que estão por vir!).</p>
+    </header>
 
-    <style>
-		#blip-chat-open-iframe {
-		display: none !important;
-	    }
+    <main>
+        <section class="intro-section">
+            <h2>Olá, humano! Que bom te ver por aqui!</h2>
+            <p>Eu sou Jeferson Oliveira, e este é o meu espaço de experimentação com inteligência artificial e conversas digitais. Meu primeiro assistente já está te esperando para um papo. Que tal começar?</p>
+            <p>Ah, e fique de olho! Em breve, teremos uma festa de bots, onde eles vão conversar entre si e quem sabe te ajudar a criar algo incrível!</p>
+            <button id="abrirBotBlip" class="animated-button">Falar com o primeiro bot!</button>
+        </section>
 
-        #blip-chat-container {
-            height: 100% !important;
-            bottom: 0 !important;
-            right: 0 !important;
-        }
+        <section class="bots-container">
+            <h3>Conheça a Equipe de Bots!</h3>
+            <div class="bot-card">
+                <img src="https://via.placeholder.com/100" alt="Avatar do Bot Blip"> <h4>Bot Blip: O Quebra-Gelo</h4>
+                <p>Meu assistente inicial, pronto para responder suas perguntas e te dar umas risadas. Pergunte sobre meus projetos!</p>
+            </div>
+            <div class="bot-card coming-soon">
+                <img src="https://via.placeholder.com/100" alt="Em Breve">
+                <h4>Bot [Nome do Próximo Bot]: O Curioso</h4>
+                <p>Em breve, este bot vai te ajudar a explorar ideias e talvez até conversar com o Bot Blip!</p>
+            </div>
+             <div class="bot-card coming-soon">
+                <img src="https://via.placeholder.com/100" alt="Em Breve">
+                <h4>Bot [Nome do Próximo Bot]: O Artista</h4>
+                <p>Imagine um bot que cria arte enquanto conversa? Aguarde!</p>
+            </div>
+        </section>
 
-        #blip-chat-iframe {
-            position: absolute !important;
-            top: 0 !important;
-            right: -400px !important;
-            bottom: 0 !important;
-            height: 100% !important;
-            max-height: 100% !important;
-            transform: none !important;
-            opacity: 1 !important;
-            box-shadow: none !important;
-            transition: 0.5s !important;
-        }
+        <section class="contact-section">
+            <h3>Vamos Conectar!</h3>
+            <p>Curtiu o laboratório? Me encontre nas redes e bora conversar sobre tecnologia e bots!</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jeferson-geovani-rodriguez-de-oliveira-3236121a5/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/jeffolivera" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://wa.me/5551998751930" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </section>
+    </main>
 
-        #blip-chat-iframe.blip-chat-iframe-opened {
-            right: 0 !important;
-            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.2) !important;
-        }
-    </style>
+    <footer>
+        <p>&copy; 2025 Jeferson Oliveira - Onde os bots ganham vida!</p>
+    </footer>
 
-    <body>
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large red pulse tooltipped fixed" data-position="left" data-tooltip="Precisa de Ajuda?!">
-                <i class="large material-icons md-dark">info_outline</i>
-            </a>
-                <ul>
-                    <li>
-                        <a class="btn-floating green tooltipped" data-position="left" data-tooltip="Telegram" href="https://t.me/bobs_the_bot" target="_blank">
-                        <i class="material-icons"><img src="https://w7.pngwing.com/pngs/419/837/png-transparent-telegram-icon-telegram-logo-computer-icons-telegram-blue-angle-triangle-thumbnail.png" width="40" height="40"/></i></a>
-                    </li>
-                    <li>
-                        <a class="btn-floating cyan accent-3 tooltipped" data-position="left" data-tooltip="Blip Chat">
-                        <i class="material-icons btn-solid-reg popup-with-move-anim" onclick="openBlipChat()"><img src="https://bots2u.com.br/chat-widget/blip.svg" width="40" height="40"/></i></a>
-                    </li>
-                    <li>
-                        <a class="btn-floating grey tooltipped" data-position="left" data-tooltip="Email" href="mailto:jeffolivera01@gmail.com">
-                        <i class="material-icons">email</i></a>
-                    </li>
-                </ul>
-        </div>
-    </body>
+    <script>
+        // Configuração do Blip Web Messenger (código existente)
+        (function () {
+            let blipChatWidget; 
+
+            window.onload = function () {
+                blipChatWidget = new BlipChatWidget({
+                    appKey: 'SEU_APPKEY_AQUI', 
+                    button: {
+                        color: '#673ab7', // Roxo suave, combinando com o botão
+                        icon: 'chat',
+                        text: 'Fale comigo!'
+                    },
+                    widget: {
+                        title: 'Oi! Sou o Bot Blip!',
+                        subtitle: 'O que posso fazer por você?'
+                    }
+                });
+
+                blipChatWidget.mount({
+                    element: document.body
+                });
+
+                const abrirBotBlip = document.getElementById('abrirBotBlip');
+                if (abrirBotBlip) {
+                    abrirBotBlip.addEventListener('click', () => {
+                        if (blipChatWidget && blipChatWidget.open) {
+                            blipChatWidget.open();
+                        }
+                    });
+                }
+            }
+        })();
+    </script>
+</body>
 </html>
