@@ -33,7 +33,8 @@ header p {
 main {
     flex-grow: 1;
     padding: 30px;
-    max-width: 900px;
+    max-width: 1200px;
+    width: 95%; /* Adicionado para melhor responsividade */
     margin: 30px auto;
     background-color: white;
     border-radius: 12px;
@@ -58,36 +59,11 @@ main {
     color: #555;
 }
 
-/* Botão animado */
-.animated-button {
-    background-color: #673ab7;
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    margin-top: 25px;
-}
-
-.animated-button:hover {
-    background-color: #512da8;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.animated-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* Container dos Bots */
 .bots-container {
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 40px; /* Adiciona espaço antes da nova seção */
+    margin-bottom: 40px;
 }
 
 .bots-container h3 {
@@ -96,15 +72,26 @@ main {
     margin-bottom: 30px;
 }
 
+/* Grid Flexbox para os bots */
+.bots-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: stretch; /* Garante que todos os cards na mesma linha tenham a mesma altura */
+}
+
+/* Estilo dos Cards de Bot (ATUALIZAÇÃO CRÍTICA) */
 .bot-card {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 20px;
-    margin: 15px;
-    display: inline-block;
-    width: 280px;
-    vertical-align: top;
+    flex-basis: 320px; /* Largura base do card */
+    flex-grow: 1;      /* Permite que o card cresça */
+    max-width: 500px;  /* Largura máxima, especialmente para o card do chat */
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -120,7 +107,7 @@ main {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 12px;
-    border: 2px solid #673ab7;
+    align-self: center; /* Centraliza a imagem no layout de coluna */
 }
 
 .bot-card h4 {
@@ -132,86 +119,40 @@ main {
 .bot-card p {
     font-size: 0.9em;
     color: #666;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Impede que o parágrafo encolha */
+}
+
+/* Container do Blip Chat (ATUALIZAÇÃO CRÍTICA) */
+#blip-chat-container {
+    width: 100%;
+    min-height: 400px; /* Altura mínima garantida */
+    flex-grow: 1; /* Faz o container do chat ocupar todo o espaço vertical restante no card */
+    border-radius: 8px;
+    overflow: hidden;
+    /* Removi a borda que poderia estar causando as "linhas flutuantes" */
 }
 
 .bot-card.coming-soon {
-    opacity: 0.5;
+    opacity: 0.6;
     border-style: dashed;
     border-color: #ccc;
+    justify-content: center;
+    align-items: center;
 }
 
 .bot-card.coming-soon h4 {
     color: #999;
 }
 
-/* Nova Seção de Contatos */
-.contact-section {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #f8f9fa; /* Fundo levemente diferente */
-    border-top: 1px solid #e0e0e0;
-    margin-top: 40px;
-    border-radius: 12px; /* Mantém o raio das bordas do main */
-}
-
-.contact-section h3 {
-    color: #3f51b5;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-.contact-section p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* Espaço entre os ícones */
-}
-
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px; /* Tamanho do círculo do ícone */
-    height: 60px;
-    border-radius: 50%; /* Torna o background redondo */
-    background-color: #673ab7; /* Cor de fundo padrão */
-    color: white;
-    font-size: 2.2em; /* Tamanho do ícone */
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.social-icon:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Cores específicas para cada ícone ao passar o mouse */
-.social-icon:nth-child(1):hover { /* LinkedIn */
-    background-color: #0077B5;
-}
-
-.social-icon:nth-child(2):hover { /* GitHub */
-    background-color: #333;
-}
-
-.social-icon.whatsapp:hover { /* WhatsApp */
-    background-color: #25D366;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: auto;
-    font-size: 0.85em;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
+/* Seção de Contatos e Footer (sem alterações) */
+.contact-section { text-align: center; padding: 40px 20px; background-color: #f8f9fa; border-top: 1px solid #e0e0e0; margin-top: 40px; border-radius: 12px; }
+.contact-section h3 { color: #3f51b5; font-size: 1.8em; margin-bottom: 15px; }
+.contact-section p { font-size: 1.1em; color: #555; margin-bottom: 30px; }
+.social-links { display: flex; justify-content: center; gap: 25px; }
+.social-icon { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: #673ab7; color: white; font-size: 2.2em; text-decoration: none; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+.social-icon:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+.social-icon:nth-child(1):hover { background-color: #0077B5; }
+.social-icon:nth-child(2):hover { background-color: #333; }
+.social-icon.whatsapp:hover { background-color: #25D366; }
+footer { background-color: #333; color: white; text-align: center; padding: 15px 0; margin-top: auto; font-size: 0.85em; border-top-left-radius: 15px; border-top-right-radius: 15px; }
