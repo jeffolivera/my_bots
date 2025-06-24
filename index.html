@@ -6,8 +6,7 @@
     <title>Meu Portfólio Divertido de Bots!</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://unpkg.com/blip-sdk@1.0.0/dist/blip-sdk.min.js"></script>
-    <script src="https://unpkg.com/blip-chat-widget"></script>
+    <script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -20,24 +19,31 @@
             <h2>Olá, humano! Que bom te ver por aqui!</h2>
             <p>Eu sou Jeferson Oliveira, e este é o meu espaço de experimentação com inteligência artificial e conversas digitais. Meu primeiro assistente já está te esperando para um papo. Que tal começar?</p>
             <p>Ah, e fique de olho! Em breve, teremos uma festa de bots, onde eles vão conversar entre si e quem sabe te ajudar a criar algo incrível!</p>
-            <button id="abrirBotBlip" class="animated-button">Falar com o primeiro bot!</button>
         </section>
 
         <section class="bots-container">
             <h3>Conheça a Equipe de Bots!</h3>
-            <div class="bot-card">
-                <img src="https://via.placeholder.com/100" alt="Avatar do Bot Blip"> <h4>Bot Blip: O Quebra-Gelo</h4>
-                <p>Meu assistente inicial, pronto para responder suas perguntas e te dar umas risadas. Pergunte sobre meus projetos!</p>
-            </div>
-            <div class="bot-card coming-soon">
-                <img src="https://via.placeholder.com/100" alt="Em Breve">
-                <h4>Bot [Nome do Próximo Bot]: O Curioso</h4>
-                <p>Em breve, este bot vai te ajudar a explorar ideias e talvez até conversar com o Bot Blip!</p>
-            </div>
-             <div class="bot-card coming-soon">
-                <img src="https://via.placeholder.com/100" alt="Em Breve">
-                <h4>Bot [Nome do Próximo Bot]: O Artista</h4>
-                <p>Imagine um bot que cria arte enquanto conversa? Aguarde!</p>
+            <div class="bots-grid">
+                
+                <div class="bot-card">
+                    <img src="https://via.placeholder.com/100" alt="Avatar do Bot Blip">
+                    <h4>Bot Blip: O Quebra-Gelo</h4>
+                    <p>Meu assistente inicial, pronto para responder suas perguntas e te dar umas risadas. Pergunte sobre meus projetos!</p>
+                    <div id="blip-chat-container"></div> 
+                </div>
+
+                <div class="bot-card coming-soon">
+                    <img src="https://via.placeholder.com/100" alt="Em Breve">
+                    <h4>Bot [Nome do Próximo Bot]: O Curioso</h4>
+                    <p>Em breve, este bot vai te ajudar a explorar ideias e talvez até conversar com o Bot Blip!</p>
+                </div>
+
+                <div class="bot-card coming-soon">
+                    <img src="https://via.placeholder.com/100" alt="Em Breve">
+                    <h4>Bot [Nome do Próximo Bot]: O Artista</h4>
+                    <p>Imagine um bot que cria arte enquanto conversa? Aguarde!</p>
+                </div>
+
             </div>
         </section>
 
@@ -63,35 +69,18 @@
     </footer>
 
     <script>
-        // Configuração do Blip Web Messenger (código existente)
         (function () {
-            let blipChatWidget; 
-
             window.onload = function () {
-                blipChatWidget = new BlipChatWidget({
-                    appKey: 'SEU_APPKEY_AQUI', 
-                    button: {
-                        color: '#673ab7', // Roxo suave, combinando com o botão
-                        icon: 'chat',
-                        text: 'Fale comigo!'
-                    },
-                    widget: {
-                        title: 'Oi! Sou o Bot Blip!',
-                        subtitle: 'O que posso fazer por você?'
-                    }
-                });
-
-                blipChatWidget.mount({
-                    element: document.body
-                });
-
-                const abrirBotBlip = document.getElementById('abrirBotBlip');
-                if (abrirBotBlip) {
-                    abrirBotBlip.addEventListener('click', () => {
-                        if (blipChatWidget && blipChatWidget.open) {
-                            blipChatWidget.open();
-                        }
-                    });
+                try {
+                    console.log("Tentando iniciar o Blip Chat...");
+                    new BlipChat()
+                        .withAppKey('Y2xvdmlzYnJheXRlY2g6YTY0MzI1ODctMGZiNS00ZGI4LWIyY2MtZTcxNjBhOWIwNzcw')
+                        .withCustomCommonUrl('https://jeffolivera01-58352.chat.blip.ai/')
+                        .withContainer('blip-chat-container')
+                        .build();
+                    console.log("Comando Blip Chat .build() executado com sucesso.");
+                } catch (e) {
+                    console.error("Ocorreu um erro ao tentar iniciar o Blip Chat:", e);
                 }
             }
         })();
